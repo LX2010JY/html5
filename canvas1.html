@@ -5,7 +5,7 @@
 	<title>Canvas</title>
 </head>
 <body>
-	<canvas id="mycanvas" width="200" height="100" style="border:1px solid #000000;">
+	<canvas id="mycanvas" width="400" height="200" style="border:1px solid #000000;">
 		您的浏览器不支持 HTML5 canvas 标签。
 	</canvas>
 	<script>
@@ -13,9 +13,50 @@
 		var canvas=document.getElementById("mycanvas");
 		//建立一个HTML5对象，拥有绘制多种图形的方法
 		var ctx=canvas.getContext("2d");
-		ctx.fillStyle="#FF0000";
+
+
+//      ||#####################插头条-渐变###################||
+		var grd = ctx.createLinearGradient(0,0,200,0);
+		grd.addColorStop(0,'red');
+		grd.addColorStop(1,'purple');
+		ctx.fillStyle = grd;
+		ctx.fillRect(0,0,150,75);
+
+
+//      ||############################矩形###################||
+		
+		//??????????
+		var grd = ctx.createRadialGradient(300,137.5,5,300,137.5,150);
+		grd.addColorStop(0,'green');
+		grd.addColorStop(1,'red');
+		ctx.fillStyle = grd;		
+		ctx.fillStyle=grd;
 		//canvas是一个二维网格，相当于坐标系，左上角为原点，0,0 就代表原点，意味着矩形从原点开始画；150,75代表矩形长宽
-		ctx.fillRect(0,0,150,75);	
+		ctx.fillRect(150,75,400,200);	
+
+
+//      ||############################线段###################||
+		//moveTo 画线段的起点坐标
+		ctx.moveTo(0,0);
+		//lineTo 画线段的重点坐标
+		ctx.lineTo(400,200);
+		//stroke 将线段画出来
+		ctx.stroke();
+
+
+//      ||############################圆形###################||
+
+		ctx.beginPath();
+		//arc(x,y,r,start,stop) start 是圆的边开始画的位置，stop是结束的位置，一般为0,2π，如果不是，会画出一个不完整的圆。
+		ctx.arc(200,100,80,0,2*Math.PI);
+		ctx.stroke();
+
+//      ||############################文本###################||
+		ctx.font = "30px Arial";
+		//fillText画的是实心的字体，下面的150,75代表的是字体左上角开始画的坐标
+		ctx.fillText('Hello Html5',150,30);
+		ctx.strokeText('Hello Canvas',150,75);
+
 	</script>	
 </body>
 </html>
