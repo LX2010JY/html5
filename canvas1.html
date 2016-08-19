@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+	<canvas id="mycanvas" width="200" height="100" style="border:1px solid #000000;">
+		您的浏览器不支持 HTML5 canvas 标签。
+	</canvas>
+	<script>
+		//获取canvas元素
+		var canvas=document.getElementById("mycanvas");
+		//建立一个HTML5对象，拥有绘制多种图形的方法
+		var ctx=canvas.getContext("2d");
+		ctx.fillStyle="#FF0000";
+		//canvas是一个二维网格，相当于坐标系，左上角为原点，0,0 就代表原点，意味着矩形从原点开始画；150,75代表矩形长宽
+		ctx.fillRect(0,0,150,75);	
+	</script>	
+</body>
+</html>
