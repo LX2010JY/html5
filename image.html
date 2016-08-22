@@ -24,9 +24,7 @@
 	<canvas id="canvas" width="450" height="275">
 		Canvas not supported
 	</canvas>
-	<script type="text/javascript">
-
-
+	<script>
 		var canvas = document.getElementById('canvas');
 		var ctx = canvas.getContext('2d');
 		var repeatRadio = document.getElementById('repeatRadio');
@@ -35,7 +33,7 @@
 		var norepeatRadio = document.getElementById('norepeatRadio');
 		var image = new Image();
 
-		function fillCanvasWithPattern(repeatString)) {
+		function fillCanvasWithPattern(repeatString) {
 			var pattern = ctx.createPattern(image,repeatString);
 			ctx.clearRect(0,0,canvas.width,canvas.height);
 			ctx.fillStyle = pattern;
@@ -56,9 +54,9 @@
 		}
 		image.src = '100.png';
 		image.onload = function(e) {
-			alert('aSome');
 			fillCanvasWithPattern('repeat');
-		}		
+		}				
 	</script>
 </body>
+
 </html>
