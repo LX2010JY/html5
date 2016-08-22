@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="utf8">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas2</title>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="800" style="border:1px solid #000000;">
+		您的浏览器不支持 HTML5 canvas 标签。
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+
+		//定义矩形为圆弧角,限两条线段之间的交点为圆弧，fillrect不行
+		ctx.lineJoin = 'round';
+		//定义矩形边的线段的宽度30px
+		ctx.lineWidth = 30;
+		ctx.font = '24px Helvetica';
+		ctx.fillText('Click anywhere to erase',175,40);
+
+		ctx.strokeStyle = 'goldenrod';
+		ctx.strokeRect(75,100,200,200);
+		//rgba 前面三位数为RGB，最后一个0.5是透明度，0为完全透明，1为完全不透明
+		ctx.fillStyle = 'rgba(0,0,255,0.5)';
+		ctx.fillRect(500,100,200,200);
+
+		var gradient = ctx.createLinearGradient(500,400,700,400);
+		gradient.addColorStop(0,'red');
+		gradient.addColorStop(0.5,'green');
+		gradient.addColorStop(1,'yellow');
+		ctx.fillStyle = gradient;
+		ctx.fillRect(500,400,200,200);
+		//createRadialGradient(startx,starty,radiusstart,endx,endy,radiusend);
+		var gradient = ctx.createRadialGradient(canvas.width/2,canvas.height,10,canvas.width/2,0,100);
+		//addColorStop(0~1之间变色结束的位置，变色结束的颜色);
+		gradient.addColorStop(0,'blue');
+		gradient.addColorStop(0.25,'white');
+		gradient.addColorStop(0.5,'purple');
+		gradient.addColorStop(0.75,'red');
+		gradient.addColorStop(1,'yellow');
+		ctx.fillStyle = gradient;
+		ctx.rect(0,0,canvas.width,canvas.height);
+		ctx.fill();
+		//整个canvas点击触发事件
+		ctx.canvas.onmousedown = function (e) {
+			//清空画的所有
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+		}
+	</script>
+</body>
+</html>
