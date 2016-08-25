@@ -1,0 +1,119 @@
+#sub{
+	margin: 20px;
+	border: 2px solid;
+	border-radius: 25px;
+	-moz-border-radius: 25px;
+}
+
+div{
+	width: 500px;
+	height: 600px;
+	padding: 20px;
+	margin: 20px;
+	float: left;
+	border: 2px solid gold;
+	border-radius: 25px;
+	-moz-border-radius: 25px;
+	/*生成阴影*/
+	/*阴影水平偏移量 ，垂直偏移量 ，阴影虚化程度，阴影颜色*/
+	box-shadow: 50px 20px 10px #888888;
+	font-family: monaco;
+}
+.div1{
+	/*3D旋转*/
+	transform: rotateX(10deg);
+	transform: rotateY(20deg);
+	transform: rotateZ(-10deg);
+}
+.div2{
+	
+	background: url(../img/bg_flower_multi.gif);
+	background-repeat: no-repeat;
+	background-position: left top;	
+	float: right;
+	-webkit-background-origin: padding-box;
+	/*padding-box 图片从留白开始,border-box 图片从边框开始 content-box 图片从正文开始;*/
+	background-origin: padding-box;
+	/*元素位置移动*/
+	transform: translate(-100px,100px);
+	/*元素宽/高 按倍数扩大 但是有了rotate之后好像前面的操作都不管用了*/
+	transform: scale(2,4);
+	/*元素旋转30度,向右为正方向*/
+	transform: rotate(-30deg);
+	-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	/*skew(x,y)围绕x,y轴旋转(这应该是3D了吧)*/
+	transform: skew(30deg,5deg);
+}
+.div3{
+	float: none;
+	width: 320px;
+	height: 240px;
+	position: relative;
+	background-color: #FFD700;
+	transition: width 0.5s,height 0.5s,transform 0.5s,background-color 0.5s;
+	animation: myfirst 5s;
+}
+.div3:hover{
+	width: 640px;
+	height: 480px;
+	transform: rotate(360deg);
+	background-color: coral;
+}
+.div4{
+	width: 100%;
+	-moz-column-count: 3;
+	-webkit-column-count: 3;
+	column-count: 3;
+	column-rule: 3px outset #ff00ff;
+	column-gap: 100px;
+}
+h1{
+	text-align: center;
+	text-shadow: 10px 5px 5px #FF0000;
+}
+/*自定义字体*/
+@font-face {
+	font-family:monaco;
+	src: url('../font/MONACO.TTF');
+}
+
+
+
+/*自定义动画*/
+@keyframes myfirst
+{
+0%   {background: red; left:0px; top:0px;}
+25%  {background: yellow; left:200px; top:0px;}
+50%  {background: blue; left:200px; top:200px;}
+75%  {background: green; left:0px; top:200px;}
+100% {background: red; left:0px; top:0px;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {background: red; left:0px; top:0px;}
+25%  {background: yellow; left:200px; top:0px;}
+50%  {background: blue; left:200px; top:200px;}
+75%  {background: green; left:0px; top:200px;}
+100% {background: red; left:0px; top:0px;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {background: red; left:0px; top:0px;}
+25%  {background: yellow; left:200px; top:0px;}
+50%  {background: blue; left:200px; top:200px;}
+75%  {background: green; left:0px; top:200px;}
+100% {background: red; left:0px; top:0px;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {background: red; left:0px; top:0px;}
+25%  {background: yellow; left:200px; top:0px;}
+50%  {background: blue; left:200px; top:200px;}
+75%  {background: green; left:0px; top:200px;}
+100% {background: red; left:0px; top:0px;}
+}

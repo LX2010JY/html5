@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow</title>
+</head>
+<body>
+	<h1>Shadow</h1>
+	<canvas id="canvas" style="border:30px solid goldenrod;border-radius:5px;width:480px;height:320px;">
+		
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		ctx.save();
+		ctx.fillStyle = '#EB852A';
+
+		ctx.shadowOffsetX = 15;
+		ctx.shadowOffsetY = 15;
+		ctx.shadowColor = 'rgba(0,0,0,0.5)';
+
+		ctx.beginPath();
+		ctx.arc(150,150,75,0,2*Math.PI);
+		ctx.fill();
+
+	</script>
+</body>
+</html>
